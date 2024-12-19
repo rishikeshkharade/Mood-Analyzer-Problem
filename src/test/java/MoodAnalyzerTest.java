@@ -16,5 +16,4 @@ public class MoodAnalyzerTest {
         String result = moodAnalyzer.analyseMood();
         assertEquals("HAPPY",result);
     }
-
 }
