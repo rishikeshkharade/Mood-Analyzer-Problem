@@ -1,19 +1,24 @@
 public class MoodAnalyzer {
         private String mood;
+
+        public MoodAnalyzer(){
+            mood = "Happy";
+        }
+
         public MoodAnalyzer(String mood){
             this.mood=mood;
         }
 
         public String analyseMood(){
-            if (mood==null|| mood.isEmpty()){
+            if (mood==null|| mood.isEmpty())
                 return "Neutral";
-            }
+
             if (mood.toLowerCase().contains("happy")){
                 return "Happy";
             } else if (mood.toLowerCase().contains("sad")) {
-                return "Sad";
+                return "SAD";
             }else {
-                return "Neutral";
+                return "HAPPY";
             }
         }
 
