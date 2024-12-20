@@ -77,5 +77,12 @@ public class MoodAnalyzer {
         }catch (MoodAnalyzerException e){
             System.out.println("Exception: "+ e.getMessage());
         }
+
+        MoodAnalyzer moodAnalyzer5 = new MoodAnalyzer("Angry Mood");
+        try{
+            System.out.println("Mood: "+ moodAnalyzer5.analyseMood());
+        }catch (MoodAnalyzerException e){
+            System.out.println("Exception: "+ e.getMessage());
+        }
     }
 }
