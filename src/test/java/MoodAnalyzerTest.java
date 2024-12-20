@@ -31,4 +31,15 @@ public class MoodAnalyzerTest {
             System.out.println("Mood: "+ e.getMessage());
         }
     }
+
+    @Test
+            void InvalidMood() {
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer("Angry Mood");
+        try {
+            assertEquals("Invalid Mood", moodAnalyzer.analyseMood());
+        } catch(MoodAnalyzerException e){
+            System.out.println("Mood: "+e.getMessage());
+        }
+    }
 }
+
