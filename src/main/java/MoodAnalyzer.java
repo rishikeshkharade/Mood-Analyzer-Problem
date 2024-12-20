@@ -1,6 +1,21 @@
+enum MoodError{
+    Null_Mood("Mood cannot be null"),
+    Empty_Mood("Mood cannot be empty"),
+    Invalid_Mood("Invalid mood input");
+
+    private final String message;
+
+    MoodError(String message){
+        this.message = message;
+    }
+    public String getMessage(){
+        return message;
+    }
+}
+
 class MoodAnalyzerException extends Exception{
-    public MoodAnalyzerException(String message){
-        super(message);
+    public MoodAnalyzerException(MoodError error){
+        super(error.getMessage());
     }
 }
 public class MoodAnalyzer {
@@ -16,10 +31,10 @@ public class MoodAnalyzer {
 
     public String analyseMood() throws MoodAnalyzerException {
         if (mood == null)
-            return "Happy";
+            throw new MoodAnalyzerException(MoodError.Null_Mood);
 
         if(mood.isEmpty())
-            throw new MoodAnalyzerException("Mood cannot be empty");
+            throw new MoodAnalyzerException(MoodError.Empty_Mood);
 
         if (mood.toLowerCase().contains("happy")) {
             return "SAD";
@@ -28,7 +43,7 @@ public class MoodAnalyzer {
         } else if (mood.toLowerCase().contains("any")) {
             return "HAPPY";
     } else {
-            throw new MoodAnalyzerException("Invalid Mood");
+            throw new MoodAnalyzerException(MoodError.Invalid_Mood);
         }
     }
 
